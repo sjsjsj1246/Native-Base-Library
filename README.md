@@ -37,8 +37,8 @@ const newColorTheme = {
   brand: {
     900: "#8287af",
     800: "#7c83db",
-    700: "#b3bef6",
-  },
+    700: "#b3bef6"
+  }
 };
 const theme = extendTheme({ colors: newColorTheme });
 // 3. Pass the `theme` prop to the `NativeBaseProvider`
@@ -76,7 +76,7 @@ export default ({ children, theme }: any) => {
       } catch (e) {
         console.log(e);
       }
-    },
+    }
   };
   return (
     <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
@@ -95,10 +95,10 @@ import { NativeBaseProvider } from "native-base";
 const config = {
   dependencies: {
     // For Expo projects (Bare or managed workflow)
-    "linear-gradient": require("expo-linear-gradient").LinearGradient,
+    "linear-gradient": require("expo-linear-gradient").LinearGradient
     // For non expo projects
     // 'linear-gradient': require('react-native-linear-gradient').default,
-  },
+  }
 };
 
 export default () => {
@@ -198,3 +198,9 @@ Factory(component, componentTheme)
 ### SafeAreaView Props
 
 ### Accessibility
+
+## Theme
+
+## Default theme
+
+## Layuout

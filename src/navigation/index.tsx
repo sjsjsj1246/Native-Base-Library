@@ -11,6 +11,7 @@ import TabOneScreen from "../screens/TabOneScreen";
 import { FontAwesome } from "@expo/vector-icons";
 import TabTwoScreen from "../screens/TabTwoScreen";
 import * as React from "react";
+import TabThreeScreen from "../screens/TabThreeScreen";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -31,6 +32,9 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
+      </Stack.Group>
+      <Stack.Group screenOptions={{ presentation: "card" }}>
+        <Stack.Screen name="Profile" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -78,6 +82,29 @@ function BottomTabNavigator() {
           title: "Tab Two",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
         }}
+      />
+      <BottomTab.Screen
+        name="TabThree"
+        component={TabThreeScreen}
+        options={({ navigation }: RootTabScreenProps<"TabThree">) => ({
+          title: "Tab Three",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerRight: () => (
+            <Pressable
+              onPress={() => navigation.navigate("Profile")}
+              style={({ pressed }) => ({
+                opacity: pressed ? 0.5 : 1
+              })}
+            >
+              <FontAwesome
+                name="user"
+                size={25}
+                color={Colors[colorScheme].text}
+                style={{ marginRight: 15 }}
+              />
+            </Pressable>
+          )
+        })}
       />
     </BottomTab.Navigator>
   );

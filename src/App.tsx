@@ -1,9 +1,8 @@
 import { registerRootComponent } from "expo";
-import { StatusBar } from "expo-status-bar";
+import { NativeBaseProvider, StatusBar } from "native-base";
 import React from "react";
-import { useColorScheme } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import useCachedResources from "./hooks/useCachedResources";
+import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 
 const App = () => {
@@ -14,10 +13,10 @@ const App = () => {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
+      <NativeBaseProvider>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
-      </SafeAreaProvider>
+      </NativeBaseProvider>
     );
   }
 };
